@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import Menu from "../components/menu"
+import Menu from "../../components/menu"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -18,9 +18,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <section>
       <Menu />
-      <body className={inter.className}>{children}</body>
-    </html>
+      <div className={inter.className}>{children}</div>
+    </section>
   )
 }
