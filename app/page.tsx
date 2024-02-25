@@ -3,48 +3,13 @@ import Link from "next/link"
 
 const Home: React.FC = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
-        height: "90vh",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "70px",
-          }}
-        >
-          A VOZ DA COSTA
-        </h1>
-        <p
-          style={{
-            margin: "2rem",
-            lineHeight: 1.4,
-            fontSize: "34px",
-          }}
-        >
+    <div className="flex justify-center items-center text-center h-screen">
+      <div className="flex flex-col justify-center items-center text-center">
+        <h1 className="text-8xl">VOZ DA COSTA</h1>
+        <p className="m-8 text-4xl leading-normal">
           A Voz Da Costa by <br /> Tatiana Da Costa
         </p>
-        <p
-          style={{
-            fontStyle: "italic",
-            color: "#787878",
-            fontSize: "22px",
-            margin: "3rem",
-          }}
-        >
+        <p className="italic text-gray-500 text-2xl m-12">
           Fashion Epiphany: A Journey Through Tempting Style Realms.
         </p>
 
