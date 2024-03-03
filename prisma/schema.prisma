@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int                @id @default(autoincrement())
+  name           String
+  lastName       String
+  email          String             @unique
+  password       String
+  image          String?
+  notes          Notes[]
+  monthlyReviews MonthlyRevisions[]
+  blogs          Blog[]
+}
+
+model Notes {
+  id      Int      @id @default(autoincrement())
+  text    String
+  date    DateTime
+  image   String?
+  theme   Thems    @relation(fields: [themeId], references: [id])
+  themeId Int
+  owner   User     @relation(fields: [ownerId], references: [id])
+  ownerId Int
+}
+
+model Thems {
+  id    Int     @id @default(autoincrement())
+  name  String
+  notes Notes[]
+  blogs Blog[]
+}
+
+model MonthlyRevisions {
+  id      Int      @id @default(autoincrement())
+  title   String
+  text    String
+  image   String?
+  date    DateTime
+  slug    String   @default("")
+  owner   User     @relation(fields: [ownerId], references: [id])
+  ownerId Int
+}
+
+model Blog {
+  id          Int      @id @default(autoincrement())
+  title       String
+  subtitle    String
+  text        String
+  image       String?
+  date        DateTime
+  owner       User     @relation(fields: [ownerId], references: [id])
+  ownerId     Int
+  theme       Thems    @relation(fields: [themeId], references: [id])
+  themeId     Int
+  description String   @default("")
+  slug        String   @default("")
+}
