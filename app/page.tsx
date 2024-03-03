@@ -5,7 +5,7 @@ const Home: React.FC = () => {
   return (
     <div className="flex justify-center items-center text-center h-screen">
       <div className="flex flex-col justify-center items-center text-center">
-        <h1 className="text-8xl">VOZ DA COSTA</h1>
+        <h1 className="text-8xl">A VOZ DA COSTA</h1>
         <p className="m-8 text-4xl leading-normal">
           A Voz Da Costa by <br /> Tatiana Da Costa
         </p>
